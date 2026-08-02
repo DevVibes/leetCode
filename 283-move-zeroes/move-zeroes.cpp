@@ -15,11 +15,8 @@ public:
 
         for (int i = j+1; i < nums.size(); i++) {
             if (nums[i] != 0) {
-                if(i!=j)
-                {
                     swap(nums[i], nums[j]);
                     j++;
-                }    
             }
         }
     }

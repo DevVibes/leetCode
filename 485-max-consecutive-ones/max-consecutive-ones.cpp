@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int findMaxConsecutiveOnes(vector<int>& nums) {
+    int findMaxConsecutiveOnes(const vector<int>& nums) {
         int maxLen=0;
 	int n=nums.size();
 	int j=0;

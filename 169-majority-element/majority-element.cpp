@@ -9,18 +9,17 @@ public:
     }
     
     int maxcount=0;
-    int result=-1;
+    
     
     for(auto &m:mp)
     {
-        if(m.second > maxcount)
+        if(m.second > (nums.size()/2))
             {
-                maxcount = m.second;
-                result = m.first;
+                return m.first;
             }
             
     }
     
-    return result;
+    return -1;
     }
 };

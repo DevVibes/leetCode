@@ -11,12 +11,11 @@ public:
                 pos.push_back(nums[i]);
         }
 
-        nums.erase(nums.begin(), nums.end());
 
         for(int i=0;i<pos.size();i++)
         {
-           nums.push_back(pos[i]);
-           nums.push_back(neg[i]);
+          nums[i*2] = pos[i];
+          nums[i*2+1] = neg[i];
         }
 
         return nums;

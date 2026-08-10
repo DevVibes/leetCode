@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int> rearrangeArray(vector<int>& nums) {
+    vector<int> rearrangeArray(const vector<int>& nums) {
         int negIndex = 1, posIndex = 0;
 
         vector<int> res (nums.size(),0);

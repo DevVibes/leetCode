@@ -22,7 +22,7 @@ public:
         ListNode* slow = head;
         ListNode* fast = head;
 
-        while(fast && fast->next)
+        while(fast!=nullptr && fast->next!= nullptr)
             {
                 fast = fast ->next->next;
                 slow = slow->next;

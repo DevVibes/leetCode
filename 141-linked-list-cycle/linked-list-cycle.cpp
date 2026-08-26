@@ -12,22 +12,20 @@ public:
         if(head == NULL || head->next == NULL )
             return false;
 
-        set<ListNode*> visited;
+        ListNode* slow = head;
+        ListNode* fast = head;
 
-        ListNode* temp = head;
-
-        while(temp)
+        while(fast && fast->next != NULL)
         {
-            auto failed = visited.insert(temp);
-            if(!failed.second)
-            {
-                return true;
-                
-            }
-            temp = temp->next;
+            slow = slow->next;
+            fast = fast->next->next;
 
+            if(slow == fast)
+                return true;
         }
-        return false;
+       
+       
+               return false;
     }
     
 };

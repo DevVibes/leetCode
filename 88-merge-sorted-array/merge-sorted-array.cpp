@@ -2,40 +2,36 @@ class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         
-        //shift nums1 elements to end
-        int shift = nums1.size() - m;
-
-        for(int i= m -1; i>=0;i--)
-            nums1[i+shift] = nums1[i];
         
-        // merge
-        int i= shift, j=0,k=0;
+        int i= m-1, j=n-1,k=m+n-1;
 
-        while(i<m+n && j<n)
-            {
-                if(nums1[i] <= nums2[j])
-                {
-                    nums1[k] = nums1[i];
-                    i++;
-                }
-                else{
-                    nums1[k] = nums2[j];
-                    j++;
-                }
-                k++;
-            }
-
-            while(i<m+n)
+        while( i>=0 && j>= 0)
+        {
+            if(nums1[i] >= nums2[j])
             {
                 nums1[k] = nums1[i];
-                i++;
-                k++;
+                i--;
             }
-        while(j<n)
+            else
             {
-                nums1[k] = nums2[j];
-                j++;
-                k++;
+                nums1[k]=nums2[j];
+                j--;
             }
+            k--;
+        }
+
+        while(i>=0)
+        {
+            nums1[k]=nums1[i];
+            k--;
+            i--;
+        }
+
+        while(j>=0)
+        {
+            nums1[k]=nums2[j];
+            k--;
+            j--;
+        }
     }
 };

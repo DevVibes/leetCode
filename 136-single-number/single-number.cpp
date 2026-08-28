@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int singleNumber(const vector<int>& nums) {
+    int singleNumber( vector<int>& nums) {
        int e=nums[0];
        for(int i=1;i<nums.size();i++)
        {

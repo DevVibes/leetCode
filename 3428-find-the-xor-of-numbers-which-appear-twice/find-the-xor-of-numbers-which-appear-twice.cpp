@@ -3,16 +3,14 @@ public:
     int duplicateNumbersXOR(vector<int>& nums) {
         unordered_map<int,int>mp;
 
-        for(int i=0;i<nums.size();i++)
-        {
-            mp[nums[i]]++;
-        }
+        
 
         int e=0;
-        for(auto m:mp)
+        for(int n:nums)
         {
-            if(m.second == 2)
-                e=e^m.first;
+            if(mp.contains(n))
+                e=e^n;
+            mp[n]++;
         }
 
 return e;

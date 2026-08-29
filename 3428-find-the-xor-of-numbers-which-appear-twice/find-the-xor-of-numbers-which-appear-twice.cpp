@@ -8,7 +8,7 @@ public:
         int e=0;
         for(int n:nums)
         {
-            if(mp[n])
+            if(mp[n]==1)
                 e=e^n;
             mp[n]++;
         }

@@ -15,36 +15,30 @@ public:
             return nullptr;
         
 
-        ListNode* temp = head;
-        int len =0;
+        ListNode* fast = head;
+        
 
-        while(temp)
+        for(int i=0;i<n;i++)
+            fast = fast ->next;
+        
+        if(!fast)
             {
-                len++;
-                temp = temp->next;
-            }
-        int todelete = len - n;
-
-        temp = head;
-        if(len == n)
-            {
-                ListNode* new_head = head;
-                head = head ->next;
-                delete new_head;
+                ListNode* toDelete = head;
+                head = head->next;
+                delete toDelete;
                 return head;
             }
 
 
-        while(temp)
-        {
-            todelete--;
-            if(todelete==0)
-                break;
-            temp = temp->next;
-        }
+        ListNode* slow = head;
+        while(fast && fast->next)
+            {
+                slow = slow->next;
+                fast = fast ->next;
+            }
         
-        ListNode* delNode = temp->next;
-        temp->next = temp->next->next;
+        ListNode* delNode = slow->next;
+        slow->next = slow->next->next;
         delete delNode;
                 
         return head;

@@ -12,45 +12,29 @@ public:
         ListNode* l1 = headA;
         ListNode* l2 = headB;
 
+        if(!l1 || !l2)
+            return nullptr;
         
-
-        // finding lengths
-        int n1=0, n2=0;
-        while(l1)
-        {
-            l1=l1->next;
-            n1++;
-        }
-        while(l2)
-        {
-            l2=l2->next;
-            n2++;
-        }
-
-        l1=headA;
-        l2=headB;
-        
-        int d=abs(n1-n2);
-        if(n1<n2 )
+        while(l1!=l2)
             {
-                for(int i=0;i<d;i++)
-                    l2=l2->next;
-            }
-        else 
-        {
-            for(int i=0;i<d;i++) 
-                l1=l1->next;
-        }
-
-      
-
-        while(l1 && l2)
-            {
-                if(l1==l2)  
-                    return l1;
                 l1=l1->next;
                 l2=l2->next;
+
+                if(l1==l2)
+                    return l2;
+
+                if(l1 == nullptr)
+                    l1=headB;
+
+                if(l2== nullptr)
+                    l2=headA;
+                
+                
+                if(l1 == nullptr && l2 == nullptr)
+                    return nullptr;
+                    
             }
-        return nullptr;
+
+        return l1;
     }
 };

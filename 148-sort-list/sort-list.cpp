@@ -9,7 +9,7 @@
  * };
  */
 
-ListNode* findmid(ListNode* head)
+ListNode* findmid(ListNode* &head)
 {
     if(head == nullptr || head->next == nullptr)
             return head;
@@ -24,7 +24,7 @@ ListNode* findmid(ListNode* head)
     return slow;
 }
 
-ListNode* merge(ListNode* left, ListNode* right)
+ListNode* merge(ListNode* &left, ListNode* &right)
 {
     ListNode* dummy = new ListNode(-1);
     ListNode* temp = dummy;
